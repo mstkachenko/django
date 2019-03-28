@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {%block page_title%}{% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static '/main/css/style.css' %}"/>
+	{% block page_static %}{% endblock %}
+</head>
+
+
+<body>
+
+ 
+
+   
+ <div class="header"><table>
+<tr><td><ul class="menu">
+        <li><a href="{% url 'main' %}">Главная</a></li>
+        <li><a href="{% url 'about' %}">О нас</a></li>
+        <li><a href="/products/">Каталог</a></li>
+        <li><a href="{% url 'contacts' %}">Контакты</a></li>
+    </ul></td>
+<td><img src="/static/main/media/logo1.jpg" alt="logo1.jpg">
+</td> 
+
+</tr>
+</table> </div>  
+     
+       
+    <hr>
+	<div class="page__content">
+    {% block page_content %}{% endblock %}
+	</div>
+     <div class="footer">
+   &copy; «Все права защищены»
+  </div>
+    
+</body>
+
+</html>
