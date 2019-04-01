@@ -1,0 +1,31 @@
+
+
+
+{% extends 'server/master.html' %}
+
+{%block page_title%}
+Кaталог
+{% endblock %}
+{% block page_content %}
+<h1>Product List</h1>
+    <h4>  <ul class= 'product_list'>
+        {%for itm in object_list %}
+            <li class="product_list_item">
+            <span class="product_list_item-name">
+            {{itm.name|title}}
+            </span>
+            <span class="product_list_item-description">
+            {{itm.description}}
+            </span>
+            <span class="product_list_item-cost">
+            {{itm.cost}}
+            </span>
+            <span class="product_list_item-image"> 
+            {{itm.image}}
+            </span>      
+            <a href="{% url 'products:detail' pk=itm.id %}" class = 'product_list'>Перейти</a>
+        </li>
+        {% endfor %}     
+    </ul></h4>
+
+{% endblock %}
