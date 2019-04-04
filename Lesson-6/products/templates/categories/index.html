@@ -1,0 +1,28 @@
+{% extends 'server/master.html' %}
+
+{% load static %}
+
+{% block page_static %}
+<link rel="stylesheet" href="{% static 'products/css/list.css' %}">
+{% endblock %}
+
+{% block page_title %}
+Product list
+{% endblock %}
+
+{% block page_content %}
+<h1>Product List</h1>
+<div class="categories">
+    {% for itm in object_list %}
+    <div class="categories__item">
+        <span class="categories__item-name">
+            {{ itm.name }}
+        </span>
+        <span class="categories__item-description">
+            {{ itm.description }}
+        </span>
+        <a href="{% url 'categories:detail' pk=itm.id %}" class="categories__item-link">Перейти</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+
+
+{% extends 'server/master.html' %}
+
+{%block page_title%}
+Детали
+{% endblock %}
+{% block page_content %}
+<div class="product">
+        <h1 class="product_name">
+                {{ object.name|title }}
+            </h1>
+            <span class="product_description">
+                {{ object.description }}
+            </span>
+            <span class="product_cost">
+                {% if object.cost %}
+                {{object.cost}}
+               <!--{{object.cost|default:'Значение отсутсвует'}}  - вместо  if else endif--> 
+                {% else %}
+                <b>
+                    Значение отсутсвует
+                </b>    
+                {% endif %}
+               
+            </span>   
+            <span class="product_image"> 
+                {% if object.image %}
+                <img src="{{ MEDIA_URL }}{{object.image.url}}">
+                {% endif %}
+            </span>  
+
+</div>
+
+{% endblock %}
+
+
+

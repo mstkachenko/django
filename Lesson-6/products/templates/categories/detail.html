@@ -1,0 +1,29 @@
+{% extends 'server/master.html' %}
+
+{% load static %}
+
+{% block page_static %}
+<link rel="stylesheet" href="{% static 'products/css/detail.css' %}">
+<link rel="stylesheet" href="{% static 'products/css/list.css' %}">
+{% endblock %}
+
+{% block page_title %}
+Product detail
+{% endblock %}
+
+{% block page_content %}
+<div class="product">
+    <h1 class="product__name">
+        {{ object.name }}
+    </h1>
+    <span class="product__description">
+        {{ object.description }}
+    </span>
+</div>
+
+<div class="products">
+    {% for itm in object.product_set.all %}
+        {% include 'server/product.html' with image=itm.image name=itm.name description=itm.description cost=itm.cost id=itm.id %}
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'server/master.html' %}
+
+{%block page_title%}
+О нас
+{% endblock %}
+{% block page_content %}
+
+    <h1>О нас</h1>
+    <h3>{{ value|capfirst }}</h3>
+    
+    <h3>{% now "Y m d"%}</h3>
+    
+
+{% endblock %}

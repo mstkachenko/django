@@ -1,0 +1,76 @@
+{% extends 'server/master.html' %}
+
+{% load static %}
+
+{% block page_static %}
+<link rel="stylesheet" href="{% static 'products/css/list.css' %}">
+{% endblock %}
+
+{%block page_title%}
+Кaталог
+{% endblock %}
+{% block page_content %}
+<h1>Product List</h1>
+    <div class="products">
+{% for itm in object_list %}
+    {% include 'server/product.html' with image=itm.image name=itm.name description=itm.description cost=itm.cost id=itm.id  %}
+{% endfor %}
+</div>
+
+{% include 'server/pagination.html' with page=page_obj paginator=paginator %}
+
+<button id="load-button">Show all</button>
+{% endblock %}
+
+{% block page_scripts %}
+<script>
+
+
+const url = 'http://localhost:8000/products/api/';
+
+const container = document.querySelector('.products');
+
+const loadButton = document.querySelector('#load-button');
+
+const asyncLoadData = () => {
+    fetch(url)
+        .then(response => response.json())
+        .then(
+            response => {
+                loadedHtml = ''
+                response.results.map(
+                    itm => { loadedHtml += renderProduct(itm) }
+                )
+                container.innerHTML = loadedHtml
+            }
+        )
+};
+
+const renderProduct = ({id, name, image, description, cost}) => (
+    `
+    <div class="products__item">
+        <img class="products__item-image" src="${ image }" alt="${ name }">
+        <span class="products__item-name">
+            ${ name }
+        </span>
+        <span class="products__item-description">
+            ${ description }
+        </span>
+        <span class="products__item-cost">
+            ${ cost }
+        </span>
+        <a href="/products/${ id }/" class="products__item-link">
+            Перейти
+        </a>
+    </div>
+    `
+);
+
+loadButton.addEventListener('click', asyncLoadData);
+
+
+
+</script>
+
+
+{% endblock %}
