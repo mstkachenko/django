@@ -1,0 +1,26 @@
+{% extends 'server/master.html' %}
+
+{%block page_title%}
+Контакты
+{% endblock %}
+{% block page_content %}
+    <h1>Контакты</h1>
+    
+   
+   Телефон: 8-800-8000000 <br>
+   E-mail: sales@retrophone.ru
+        <br>
+Адрес: г. Екатеринбург пл. 1905 года д.1
+<br>
+
+<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1kKj4WYN3J6HxFvF2DntpHzpdjKLTbAGU" width="320" height="200"></iframe>
+<h2>Обратная связь</h2>
+<form action="">
+    <p>Ваше имя <input type="text" placeholder="Ваше имя" id="name"></p>
+    <p>Ваш e-mail <input type="text" placeholder="Ваш e-mail" id="e-mail"></p>
+   <p>Текст сообщения</p>
+  <textarea name="comment" id="comment"></textarea><br>
+  <input type="submit"> <input type="reset" value="Отмена">
+</form>
+<br><br>
+{% endblock %}

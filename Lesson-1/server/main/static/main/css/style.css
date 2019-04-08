@@ -1,0 +1,114 @@
+body {
+    background: #f8f8f8;
+}
+
+.menu {
+    list-style-type: none;
+    font-size: 25px;
+    font-style: italic;
+    font-family: monospace;
+    
+}
+
+.menu a {
+    color: darkred;
+	
+    
+}
+.menu li{
+	
+	display:inline;
+}
+
+.menu a:hover{
+    color:coral;
+}
+
+.header table{
+    width: 100%;
+}
+.header menu a:hover{
+    color:coral;
+}
+
+.headers_h3{
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #eaeaea;
+    
+}
+p#short_describe{
+    color:#707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+p#full_describe{
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    
+}
+.footer {
+    border-top-style: solid;
+    border-top-width: thin;
+    background:#f8f8f8;     
+    position: fixed;
+        left: 0;
+        bottom: 0;
+        padding: 10px;
+        width: 98.5%;
+
+    
+       
+    } 
+img#phone {
+    height: 270px;
+    width: 130px;
+
+}
+img#ramka{
+    outline: 2px solid #ccc; /* Чёрная рамка */
+}
+
+ul#phone{
+    color:brown;
+    list-style-image:url(img/marker.jpg);
+    font-size: 15px;
+    font-stretch:extra-expanded;
+    font-family: sans-serif;
+}
+
+input#name{
+    height: 20px;
+    width: 248px;
+    font-size: 20px;
+    color: darkblue;
+    font-style: italic;
+}
+input{
+    text-transform: capitalize;
+}
+input#e-mail{
+    width: 240px;
+    height: 20px;
+    font-size: 20px;
+    color: darkblue;
+    font-style: italic;
+    }
+input#e-mail:focus{
+    color:black;
+    background: #dcc;
+}
+
+textarea#comment{
+    text-transform: capitalize;
+    color: darkblue;
+    width: 320px;
+    height: 100px;
+    font-size: 15px;
+    font-style: italic;
+}
